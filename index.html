@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Toppers Hub 2.0 — student notes, study PDFs, important questions and MCQ quizzes.">
+<meta name="theme-color" content="#071426">
+<title>Toppers Hub 2.0 | Notes, PDFs & MCQ Quizzes</title>
+<style>
+:root{--navy:#071426;--navy2:#0d2238;--blue:#1685f5;--blue2:#0b65c2;--yellow:#ffd21f;--bg:#f4f7fb;--text:#172033;--muted:#68788c;--line:#dfe7ef;--white:#fff;--good:#16a34a;--bad:#dc2626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer}.hide{display:none!important}
+#login{min-height:100vh;background:radial-gradient(circle at 20% 10%,#174e80 0,#0a1e34 38%,#050e1a 100%);display:flex;align-items:center;justify-content:center;padding:20px;color:#fff}
+.login-wrap{width:min(1000px,100%);display:grid;grid-template-columns:1.15fr .85fr;border:1px solid #31516f;border-radius:26px;overflow:hidden;background:#091a2c;box-shadow:0 25px 90px #0008}
+.login-brand{padding:54px}.mini-logo{font-weight:900;letter-spacing:.4px}.mini-logo b,.logo b{color:var(--yellow)}
+.login-brand h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:80px 0 18px}.login-brand h1 b{color:var(--yellow)}
+.login-brand p{color:#bfd0e2;font-size:17px;line-height:1.6}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.pill{border:1px solid #365671;background:#0d263e;padding:8px 12px;border-radius:999px;color:#d5e7f8;font-size:13px}
+.login-card{padding:48px;background:#0d1e31}.login-card h2{font-size:30px;margin:0 0 8px}.login-card .sub{color:#a9bdd1;margin-bottom:28px}.field{margin-bottom:15px}.field label{display:block;font-size:13px;color:#c5d4e2;margin-bottom:7px}.field input{width:100%;padding:14px 15px;border:1px solid #3a5771;background:#071321;color:#fff;border-radius:10px;outline:none}.field input:focus{border-color:var(--blue)}.primary{width:100%;border:0;background:linear-gradient(135deg,#1685f5,#0b65c2);color:#fff;padding:14px;border-radius:10px;font-weight:800}.demo{font-size:12px;color:#91a5ba;text-align:center;margin-top:12px}.designer{margin-top:28px;padding-top:20px;border-top:1px solid #28425b;text-align:center;color:#9db2c8;font-size:12px}
+#adminGate{position:fixed;inset:0;background:#050e1acc;backdrop-filter:blur(6px);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}.admin-gate-card{width:min(430px,100%);background:#fff;border-radius:20px;padding:28px;box-shadow:0 30px 100px #0008;position:relative}.admin-gate-card h2{margin:18px 0 6px}.gate-close{position:absolute;right:14px;top:14px;border:0;background:#eef3f8;border-radius:8px;padding:7px 10px}.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.admin-tabs button{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:9px;font-weight:700}.admin-tabs button.active{background:var(--blue);color:#fff;border-color:var(--blue)}.admin-panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.admin-stat{background:#f7faff;border:1px solid var(--line);padding:15px;border-radius:12px}.admin-stat strong{display:block;font-size:25px}.manage-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.manage-actions{display:flex;gap:6px;flex-wrap:wrap}.danger{border:0;background:#fee2e2;color:#b91c1c;padding:9px 11px;border-radius:8px;font-weight:800}.small-btn{border:0;background:#edf5ff;color:#0965bd;padding:9px 11px;border-radius:8px;font-weight:800}@media(max-width:800px){.manage-row{align-items:flex-start;flex-direction:column}}
+header{height:68px;background:rgba(7,20,38,.97);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:20;box-shadow:0 3px 18px #07142622}.logo{font-weight:900;font-size:20px}.top-actions{display:flex;align-items:center;gap:10px}.user-badge{padding:7px 10px;border-radius:999px;background:#102a43;color:#d9e8f5;font-size:13px}.logout{border:1px solid #3b5670;background:transparent;color:#d6e2ec;padding:8px 11px;border-radius:8px}
+.layout{display:grid;grid-template-columns:235px 1fr;min-height:calc(100vh - 68px)}aside{background:#081625;color:#b8c8d9;padding:17px;position:sticky;top:68px;height:calc(100vh - 68px)}.side-title{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:#66819a;margin:8px 10px 10px}.side button{width:100%;border:0;background:transparent;color:#b8c8d9;text-align:left;padding:12px 13px;border-radius:9px;margin:2px 0}.side button.active,.side button:hover{background:#096ed0;color:#fff}
+.main{width:min(1250px,100%);margin:auto;padding:28px}.section{animation:fade .2s ease}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hero{background:linear-gradient(120deg,#071b30,#0d4e83);color:#fff;padding:30px;border-radius:20px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#ffffff0c;right:-55px;top:-65px}.hero h1{margin:0 0 8px;font-size:clamp(28px,4vw,42px)}.hero p{margin:0;color:#c7d9e8}.hero-actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}.hero-btn{border:0;background:#fff;color:#0a3d67;padding:10px 14px;border-radius:9px;font-weight:800}
+.stats,.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:15px;margin-top:18px}.stat,.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:0 8px 25px #1720330a}.stat strong{display:block;font-size:28px;margin:5px 0 2px}.muted{color:var(--muted)}.tag{display:inline-block;background:#eaf3ff;color:#0868c8;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}.section-head h1{margin-bottom:5px}.tools{display:flex;gap:8px;flex-wrap:wrap}.tools input,.tools select{padding:10px 12px;border:1px solid var(--line);background:#fff;border-radius:9px;outline:none}
+.resource{display:flex;justify-content:space-between;align-items:center;gap:15px}.btn{display:inline-block;border:0;background:var(--blue);color:#fff;padding:10px 13px;border-radius:9px;font-weight:800;text-decoration:none;white-space:nowrap}.btn.secondary{background:#edf5ff;color:#0965bd}.list{margin:0;padding-left:20px;line-height:1.8}.question{padding:15px 0;border-bottom:1px solid var(--line)}.question:last-child{border-bottom:0}
+.quiz-card{max-width:820px}.option{width:100%;text-align:left;background:#fff;border:2px solid var(--line);padding:12px 14px;border-radius:10px;margin:6px 0}.option:hover{border-color:#9bc8f5}.correct{background:#dcfce7!important;border-color:var(--good)!important}.wrong{background:#fee2e2!important;border-color:var(--bad)!important}.progress{height:8px;background:#e9eef4;border-radius:99px;overflow:hidden;margin:10px 0 18px}.progress>div{height:100%;background:var(--blue);width:0}
+footer{margin-top:40px;padding:25px 0;border-top:1px solid var(--line);color:#7b8a9b;font-size:13px}
+.mobile-nav{display:none}
+@media(max-width:800px){.login-wrap{grid-template-columns:1fr}.login-brand{padding:34px}.login-brand h1{margin-top:38px}.login-card{padding:32px}.layout{grid-template-columns:1fr}aside{display:none}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#071426;z-index:30;padding:7px;gap:4px;overflow:auto}.mobile-nav button{min-width:74px;border:0;background:transparent;color:#b8c8d9;font-size:10px;padding:6px}.mobile-nav button.active{color:#fff;background:#096ed0;border-radius:8px}.main{padding:17px 17px 85px}.top-actions .user-badge{display:none}.resource{align-items:flex-start;flex-direction:column}.resource .btn{width:100%;text-align:center}}
+.user-table{width:100%;border-collapse:collapse;font-size:13px}.user-table th,.user-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}.user-table th{background:#f7faff}.privacy-note{font-size:11px;color:#91a5ba;line-height:1.5;margin-top:12px}.upload-box{border:2px dashed #9bc8f5;padding:18px;border-radius:12px;background:#f7fbff}.admin-only{display:none}.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#a9bdd1;margin:12px 0}.consent input{margin-top:3px}.file-name{font-size:12px;color:var(--muted);margin-top:8px}</style>
+</head>
+<body>
+<div id="login">
+  <div class="login-wrap">
+    <div class="login-brand">
+      <div class="mini-logo">🎓 TOPPERS HUB <b>2.0</b></div><div style="margin-top:10px;color:#8fc8ff;font-size:12px;font-weight:700;letter-spacing:1px">STUDENT LEARNING PORTAL</div>
+      <small>Learn Today • Lead Tomorrow</small>
+      <h1>Study smarter.<br><b>Score better.</b></h1>
+      <p>Notes, PDFs, important questions and interactive MCQ quizzes — organised for students in one simple place.</p>
+      <div class="pills"><span class="pill">📚 Notes</span><span class="pill">📄 PDFs</span><span class="pill">❓ Questions</span><span class="pill">🧠 Quizzes</span></div><button class="hero-btn" style="margin-top:18px" onclick="openAdminGate()">⚙️ Admin Login</button>
+    </div>
+    <div class="login-card">
+      <h2>Welcome Back!</h2><div class="sub">Login to continue your learning journey.</div>
+      <div class="field"><label>📱 Mobile Number</label><input id="name" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number"></div>
+      <label class="consent"><input id="consent" type="checkbox"> I agree that my mobile number and basic login/activity information may be stored for account and security purposes.</label>
+      <div id="recaptcha-container" style="margin:12px 0"></div>
+      <button class="primary" id="sendOtpBtn" onclick="login()">📩 Send OTP</button>
+      <div id="otpBox" class="hide" style="margin-top:14px"><div class="field"><label>🔢 6-digit OTP</label><input id="otp" type="tel" inputmode="numeric" maxlength="6" placeholder="Enter OTP received by SMS"></div><button class="primary" onclick="verifyOtp()">✅ Verify OTP & Login</button><div id="otpStatus" class="demo"></div></div>
+      <div class="demo">A 6-digit verification code will be sent by SMS.</div>
+      <div class="designer">Designed by: <b>Your Name</b><br>Web Designer</div>
+    </div>
+  </div>
+</div>
+
+<div id="adminGate" class="hide">
+  <div class="admin-gate-card">
+    <button class="gate-close" onclick="closeAdminGate()">✕</button>
+    <div class="mini-logo">⚙️ ADMIN <b>PANEL</b></div>
+    <h2>Admin Login</h2>
+    <p class="muted">Enter the admin mobile number and verify the SMS OTP.</p>
+    <div class="field"><label>Admin Mobile Number</label><input id="adminPhone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit admin number"></div>
+    <div id="admin-recaptcha-container" style="margin:12px 0"></div>
+    <button class="primary" onclick="adminLogin()">📩 Send Admin OTP</button>
+    <div id="adminOtpBox" class="hide" style="margin-top:14px"><div class="field"><label>6-digit Admin OTP</label><input id="adminOtp" type="tel" inputmode="numeric" maxlength="6" placeholder="Enter OTP"></div><button class="primary" onclick="verifyAdminOtp()">🔐 Verify & Open Admin Panel</button><div id="adminOtpStatus" class="demo"></div></div>
+  </div>
+</div>
+
+<div id="app" class="hide">
+<header>
+  <div class="logo">🎓 TOPPERS HUB <b>2.0</b></div>
+  <div class="top-actions"><span class="user-badge">👤 <span id="who">Student</span></span><button class="logout" onclick="logout()">Logout</button></div>
+</header>
+<div class="layout">
+<aside><div class="side-title">Student Menu</div><div class="side">
+<button class="active" data-page="dash" onclick="show('dash',this)">🏠 Home / Dashboard</button>
+<button data-page="notes" onclick="show('notes',this)">📚 Study Notes</button>
+<button data-page="pdfs" onclick="show('pdfs',this)">📄 PDF Materials</button>
+<button data-page="questions" onclick="show('questions',this)">❓ Important Questions</button>
+<button data-page="quiz" onclick="show('quiz',this)">🧠 MCQ Quiz + Score</button>
+<button data-page="library" onclick="show('library',this)">📚 Library</button>
+<button data-page="admin" onclick="if(requireAdmin())show('admin',this)">⚙️ Admin Panel</button>
+<button data-page="about" onclick="show('about',this)">👤 About / Designer</button>
+</div></aside>
+
+<main class="main">
+<section id="dash" class="section">
+<div class="hero"><h1>Welcome, <span id="welcome">Student</span>! 👋</h1><p>Keep learning, practising and improving every day.</p><div class="hero-actions"><button class="hero-btn" onclick="showById('notes')">Explore Notes</button><button class="hero-btn" onclick="showById('quiz')">Start Quiz</button></div></div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><div style="font-size:28px">📚</div><h3>Study Notes</h3><p class="muted">Quick, organised notes for revision.</p><button class="btn secondary" onclick="showById('notes')">Open Notes</button></div>
+<div class="card"><div style="font-size:28px">📄</div><h3>PDF Materials</h3><p class="muted">Downloadable study resources.</p><button class="btn secondary" onclick="showById('pdfs')">Open PDFs</button></div>
+<div class="card"><div style="font-size:28px">❓</div><h3>Important Questions</h3><p class="muted">Practise high-value exam questions.</p><button class="btn secondary" onclick="showById('questions')">Practise</button></div>
+<div class="card"><div style="font-size:28px">🧠</div><h3>MCQ Quiz + Score</h3><p class="muted">Test yourself and see your score instantly.</p><button class="btn secondary" onclick="showById('quiz')">Start Quiz</button></div>
+<div class="card"><div style="font-size:28px">📚</div><h3>Library</h3><p class="muted">Find notes, PDFs, questions, quizzes, Books and E-books in one place.</p><button class="btn secondary" onclick="showById('library')">Open Library</button></div>
+</div>
+<div class="stats"><div class="stat">📚<strong>45+</strong><small>Notes planned</small></div><div class="stat">📄<strong>3</strong><small>PDF materials available</small></div><div class="stat">🧠<strong>5</strong><small>MCQ questions in demo quiz</small></div><div class="stat">⭐<strong id="score">0%</strong><small>Latest quiz score</small></div></div>
+<div class="grid">
+<div class="card"><span class="tag">NEW</span><h3>Quick Revision</h3><p class="muted">Short, exam-focused points for fast revision before tests.</p></div>
+<div class="card"><span class="tag">PRACTICE</span><h3>Important Questions</h3><p class="muted">Use chapter-wise questions to practise answer writing.</p></div>
+<div class="card"><span class="tag">QUIZ</span><h3>Test Yourself</h3><p class="muted">Attempt MCQs and instantly see your score.</p></div>
+</div>
+</section>
+
+<section id="notes" class="section hide">
+<div class="section-head"><div><h1>📚 Study Notes</h1><p class="muted">Search and filter the available sample notes.</p></div><div class="tools"><input id="noteSearch" oninput="filterNotes()" placeholder="Search notes..."><select id="noteClass" onchange="filterNotes()"><option value="all">All classes</option><option>Class 10</option><option>Class 9</option></select></div></div>
+<div id="noteGrid" class="grid">
+<div class="card note" data-class="Class 10" data-text="science chemical reactions acids bases class 10"><h3>🔬 Class 10 Science</h3><p>Chemical reactions, acids, bases and quick revision concepts.</p><span class="tag">Class 10 • Science</span></div>
+<div class="card note" data-class="Class 10" data-text="maths real numbers quadratic equations coordinate geometry class 10"><h3>➗ Class 10 Maths</h3><p>Real numbers, quadratic equations and coordinate geometry.</p><span class="tag">Class 10 • Maths</span></div>
+<div class="card note" data-class="Class 9" data-text="social science democracy constitution geography class 9"><h3>🌍 Class 9 SST</h3><p>Democracy, constitution, geography and exam revision points.</p><span class="tag">Class 9 • SST</span></div>
+</div></section>
+
+<section id="pdfs" class="section hide">
+<div class="section-head"><div><h1>📄 PDF Materials</h1><p class="muted">Download the available study materials.</p></div></div>
+<div class="grid">
+<div class="card resource"><div><span class="tag">CLASS 10</span><h3>Science Quick Notes</h3><p class="muted">Chemical reactions, acids, bases and exam tips.</p></div><a class="btn" href="study-materials/Science_Class10_Notes.pdf" download>Download PDF</a></div>
+<div class="card resource"><div><span class="tag">CLASS 10</span><h3>Maths Important Questions</h3><p class="muted">Practice questions from key Class 10 topics.</p></div><a class="btn" href="study-materials/Maths_Class10_Important_Questions.pdf" download>Download PDF</a></div>
+<div class="card resource"><div><span class="tag">CLASS 9</span><h3>SST Quick Notes</h3><p class="muted">Democracy, constitution, geography and tips.</p></div><a class="btn" href="study-materials/SST_Class9_Notes.pdf" download>Download PDF</a></div>
+</div></section>
+
+<section id="questions" class="section hide">
+<div class="section-head"><div><h1>❓ Important Questions</h1><p class="muted">High-value practice questions for revision.</p></div></div>
+<div class="grid">
+<div class="card"><span class="tag">SCIENCE</span><h3>Class 10</h3><ol class="list"><li>Balance a chemical equation.</li><li>Explain oxidation and reduction.</li><li>Differentiate combination and displacement reactions.</li><li>Explain neutralisation with an example.</li></ol></div>
+<div class="card"><span class="tag">MATHS</span><h3>Class 10</h3><ol class="list"><li>Solve a quadratic equation by factorisation.</li><li>Use the quadratic formula and verify the roots.</li><li>Find the distance between two points.</li><li>Find a point dividing a line segment in a given ratio.</li></ol></div>
+<div class="card"><span class="tag">SST</span><h3>Class 9</h3><ol class="list"><li>What is democracy?</li><li>Why is a constitution important?</li><li>Explain major features of democratic government.</li><li>Practise important map locations.</li></ol></div>
+</div></section>
+
+<section id="quiz" class="section hide">
+<div class="section-head"><div><h1>🧠 MCQ Quiz</h1><p class="muted">Answer each question and check your final score.</p></div></div>
+<div class="card quiz-card"><div class="progress"><div id="bar"></div></div><div id="q"></div><div id="opts"></div><button class="btn" id="next" onclick="nextQ()">Next Question</button><p id="qs" class="muted"></p></div>
+</section>
+
+<section id="library" class="section hide">
+<div class="section-head"><div><h1>📚 Library</h1><p class="muted">All study resources in one organised place.</p></div><div class="tools"><input id="libSearch" oninput="filterLibrary()" placeholder="Search library..."><select id="libType" onchange="filterLibrary()"><option value="all">All resources</option><option value="Notes">Notes</option><option value="PDF">PDF</option><option value="Questions">Questions</option><option value="Quiz">Quiz</option><option value="Books">Books</option><option value="E-books">E-books</option></select></div></div>
+<div id="libraryGrid" class="grid">
+<div class="card library-item" data-type="Notes" data-text="class 10 science quick notes chemical reactions"><span class="tag">NOTES</span><h3>🔬 Class 10 Science Quick Notes</h3><p class="muted">Quick revision notes for Science.</p><button class="btn secondary" onclick="showById('notes')">Open Notes</button></div>
+<div class="card library-item" data-type="Notes" data-text="class 10 maths real numbers quadratic equations"><span class="tag">NOTES</span><h3>➗ Class 10 Maths Notes</h3><p class="muted">Key Maths topics for revision.</p><button class="btn secondary" onclick="showById('notes')">Open Notes</button></div>
+<div class="card library-item" data-type="PDF" data-text="science class 10 pdf notes"><span class="tag">PDF</span><h3>📄 Science Class 10 PDF</h3><p class="muted">Downloadable Science study material.</p><a class="btn" href="study-materials/Science_Class10_Notes.pdf" download>Download</a></div>
+<div class="card library-item" data-type="PDF" data-text="maths class 10 important questions pdf"><span class="tag">PDF</span><h3>📄 Maths Important Questions PDF</h3><p class="muted">Practice material for Class 10 Maths.</p><a class="btn" href="study-materials/Maths_Class10_Important_Questions.pdf" download>Download</a></div>
+<div class="card library-item" data-type="PDF" data-text="sst class 9 pdf notes"><span class="tag">PDF</span><h3>📄 Class 9 SST PDF</h3><p class="muted">Quick SST revision material.</p><a class="btn" href="study-materials/SST_Class9_Notes.pdf" download>Download</a></div>
+<div class="card library-item" data-type="Questions" data-text="important questions science maths sst"><span class="tag">QUESTIONS</span><h3>❓ Important Questions</h3><p class="muted">Exam-focused practice questions.</p><button class="btn secondary" onclick="showById('questions')">Open</button></div>
+<div class="card library-item" data-type="Quiz" data-text="mcq quiz score science maths sst"><span class="tag">QUIZ</span><h3>🧠 MCQ Quiz</h3><p class="muted">Test your preparation and get your score.</p><button class="btn secondary" onclick="showById('quiz')">Start</button></div>
+<div class="card library-item" data-type="Books" data-text="books textbooks reference study books"><span class="tag">BOOKS</span><h3>📚 Books</h3><p class="muted">Textbooks and reference books for students.</p><button class="btn secondary" onclick="showById('books')">Open Books</button></div>
+<div class="card library-item" data-type="E-books" data-text="ebooks digital books online reading study ebooks"><span class="tag">E-BOOKS</span><h3>📖 E-books</h3><p class="muted">Digital books and online reading resources.</p><button class="btn secondary" onclick="showById('ebooks')">Open E-books</button></div>
+</div></section>
+
+<section id="books" class="section hide">
+<div class="section-head"><div><h1>📚 Books</h1><p class="muted">Textbooks and reference books available through the Library.</p></div></div>
+<div class="grid">
+<div class="card"><span class="tag">BOOK</span><h3>📘 Class 10 Science Book</h3><p class="muted">Add your school textbook or reference book here.</p><p class="muted">Use Manage Content to add more book links.</p></div>
+<div class="card"><span class="tag">BOOK</span><h3>📕 Class 10 Maths Book</h3><p class="muted">Add your Maths textbook or reference book here.</p><p class="muted">Use Manage Content to add more book links.</p></div>
+</div></section>
+
+<section id="ebooks" class="section hide">
+<div class="section-head"><div><h1>📖 E-books</h1><p class="muted">Digital books and online reading resources.</p></div></div>
+<div class="grid">
+<div class="card"><span class="tag">E-BOOK</span><h3>📖 Digital Study Book</h3><p class="muted">Add a PDF or online e-book link from Manage Content.</p></div>
+<div class="card"><span class="tag">E-BOOK</span><h3>📱 Online Reference</h3><p class="muted">Keep useful digital reading resources organised here.</p></div>
+</div></section>
+
+<section id="admin" class="section hide">
+<div class="section-head"><div><h1>⚙️ Admin Panel</h1><p class="muted">Manage Library content from one dashboard.</p></div><button class="btn secondary" onclick="adminLogout()">Admin Logout</button></div>
+<div class="admin-panel-grid">
+<div class="admin-stat">📚<strong id="adminCount">0</strong><small>Total resources</small></div>
+<div class="admin-stat">📄<strong id="adminPdfCount">0</strong><small>PDF resources</small></div>
+<div class="admin-stat">📚<strong id="adminBookCount">0</strong><small>Books / E-books</small></div>
+<div class="admin-stat">👥<strong id="adminUserCount">0</strong><small>Registered users</small></div><div class="admin-stat">☁️<strong id="onlineStatus">—</strong><small>Cloud status</small></div>
+</div>
+<div class="admin-tabs">
+<button class="active" id="tabResources" onclick="adminTab('resources',this)">📚 Resources</button>
+<button id="tabAdd" onclick="adminTab('add',this)">➕ Add Resource</button>
+<button id="tabUsers" onclick="adminTab('users',this)">👥 Users</button><button id="tabSettings" onclick="adminTab('settings',this)">🔧 Settings</button>
+</div>
+<div id="adminResources" class="card">
+<h3>Manage Library Resources</h3><p class="muted">Edit or delete resources added through this admin panel.</p><div id="manageList"></div>
+</div>
+<div id="adminAdd" class="card hide">
+<h3 id="adminFormTitle">➕ Add Resource</h3>
+<div class="grid" style="margin-top:10px">
+<div class="field"><label>Title</label><input id="newTitle" placeholder="e.g. Class 10 English Book"></div>
+<div class="field"><label>Type</label><select id="newType"><option>Notes</option><option>PDF</option><option>Questions</option><option>Quiz</option><option>Books</option><option>E-books</option></select></div>
+<div class="field"><label>Description</label><input id="newDesc" placeholder="Short description"></div>
+<div class="field"><label>Link</label><input id="newLink" placeholder="Optional external link (PDF upload is stored online)"></div>
+</div>
+<input id="pdfFile" type="file" accept="application/pdf" onchange="previewPdf()" style="display:block;margin:12px 0"><div id="pdfFileName" class="demo" style="text-align:left"></div><button class="btn" id="saveResourceBtn" onclick="saveResource()">Add Resource</button><button class="btn secondary" style="margin-left:8px" onclick="cancelEdit()">Cancel</button>
+</div>
+<div id="adminUsers" class="card hide"><h3>👥 Registered Users</h3><p class="muted">Users registered through the online Firebase database.</p><div style="overflow:auto"><table class="user-table"><thead><tr><th>Mobile</th><th>First Login</th><th>Last Login</th><th>Logins</th></tr></thead><tbody id="userList"></tbody></table></div></div>
+
+<div id="adminSettings" class="card hide">
+<h3>⚙️ Admin Settings</h3><p class="muted">Online mode: users and resources are stored in Firebase. Only the configured admin phone can add, edit or delete resources.</p>
+<button class="danger" onclick="resetAdminData()">Reset Admin Resources</button>
+</div>
+</section>
+
+<section id="about" class="section hide">
+<h1>👤 About / Designer</h1>
+<div class="card"><h2>TOPPERS HUB 2.0</h2><p class="muted">Learn Today • Lead Tomorrow</p>
+<div class="grid">
+<div><b>🔐 Login</b><p class="muted">Student login screen to enter the portal.</p></div>
+<div><b>🏠 Home / Dashboard</b><p class="muted">Central place to access all study features.</p></div>
+<div><b>📚 Study Notes</b><p class="muted">Searchable and class-filtered revision notes.</p></div>
+<div><b>📄 PDF Materials</b><p class="muted">Download study material PDFs.</p></div>
+<div><b>❓ Important Questions</b><p class="muted">Exam-focused practice questions.</p></div>
+<div><b>🧠 MCQ Quiz + Score</b><p class="muted">Interactive MCQs with instant results.</p></div>
+</div>
+<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+<p><b>Designed by: Your Name</b></p><p class="muted">Web Designer</p>
+<p class="muted">📱 Fully mobile-friendly layout for phones, tablets and desktop screens.</p>
+</div></section>
+<footer>© 2026 Toppers Hub 2.0 • Learn Today • Lead Tomorrow</footer>
+</main></div>
+
+<div class="mobile-nav">
+<button class="active" data-page="dash" onclick="show('dash',this)">🏠<br>Home</button>
+<button data-page="notes" onclick="show('notes',this)">📚<br>Notes</button>
+<button data-page="pdfs" onclick="show('pdfs',this)">📄<br>PDFs</button>
+<button data-page="questions" onclick="show('questions',this)">❓<br>Questions</button>
+<button data-page="quiz" onclick="show('quiz',this)">🧠<br>Quiz</button>
+<button data-page="library" onclick="show('library',this)">📚<br>Library</button>
+</div>
+</div>
+
+<script>
+const pages=['dash','notes','pdfs','questions','quiz','library','books','ebooks','admin','about'];
+function passwordIsStrong(p){return p.length>=8}
+function checkPasswordStrength(){const p=document.getElementById('pass').value,box=document.getElementById('passStrength'); if(!p){box.textContent='Password must be at least 8 characters.';return} const ok=passwordIsStrong(p); box.textContent=ok?'✓ Password length is valid':'Password must be at least 8 characters.'; box.style.color=ok?'#8ff0b2':'#91a5ba'}
+function login(){
+  const n=document.getElementById('name').value.trim(), p=document.getElementById('pass').value;
+  if(!/^\d{10}$/.test(n)){alert('Mobile number must be exactly 10 digits.');return}
+  if(!passwordIsStrong(p)){alert('Password must be at least 8 characters.');return}
+  if(!document.getElementById('consent').checked){alert('Please accept the data-use notice to continue.');return}
+  recordUser(n);
+  sessionStorage.setItem('th_user',n);
+  document.getElementById('who').textContent=n;
+  document.getElementById('welcome').textContent=n;
+  document.getElementById('login').classList.add('hide');
+  document.getElementById('app').classList.remove('hide');
+}
+function logout(){sessionStorage.removeItem('th_user');location.reload()}
+
+
+function show(id,b){
+  if(id==='admin' && !requireAdmin()) return;
+  pages.forEach(x=>document.getElementById(x).classList.add('hide'));
+  document.getElementById(id).classList.remove('hide');
+  document.querySelectorAll('[data-page]').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('[data-page="'+id+'"]').forEach(x=>x.classList.add('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showById(id){show(id)}
+
+function filterLibrary(){
+  const q=(document.getElementById('libSearch').value||'').toLowerCase(), t=document.getElementById('libType').value;
+  document.querySelectorAll('.library-item').forEach(n=>n.style.display=(!q||n.dataset.text.includes(q))&&(t==='all'||n.dataset.type===t)?'block':'none');
+}
+let editingIndex=-1;
+function getUsers(){return JSON.parse(localStorage.getItem('th_users')||'[]')}
+function saveUsers(a){localStorage.setItem('th_users',JSON.stringify(a))}
+function recordUser(n){const a=getUsers(),now=new Date().toISOString(),i=a.findIndex(x=>x.mobile===n);if(i<0)a.push({mobile:n,firstLogin:now,lastLogin:now,logins:1});else{a[i].lastLogin=now;a[i].logins=(a[i].logins||0)+1}saveUsers(a)}
+function renderUsers(){const a=getUsers(),el=document.getElementById('userList');if(!el)return;el.innerHTML=a.length?a.map(x=>'<tr><td>'+escapeHtml(x.mobile)+'</td><td>'+new Date(x.firstLogin).toLocaleString()+'</td><td>'+new Date(x.lastLogin).toLocaleString()+'</td><td>'+x.logins+'</td></tr>').join(''):'<tr><td colspan="4" class="muted">No users yet.</td></tr>'}
+function previewPdf(){const f=document.getElementById('pdfFile').files[0];document.getElementById('pdfFileName').textContent=f?('Selected: '+f.name):''}
+function getAdminItems(){return JSON.parse(localStorage.getItem('th_admin_resources')||'[]')}
+function saveAdminItems(items){localStorage.setItem('th_admin_resources',JSON.stringify(items))}
+function openAdminGate(){document.getElementById('adminGate').classList.remove('hide');document.getElementById('adminPass').focus()}
+function closeAdminGate(){document.getElementById('adminGate').classList.add('hide');document.getElementById('adminPass').value=''}
+function adminLogin(){const p=document.getElementById('adminPass').value;if(p!=='Adm@2026'){alert('Incorrect admin password.');return}sessionStorage.setItem('th_admin','1');closeAdminGate();show('admin');renderAdmin();}
+function adminLogout(){sessionStorage.removeItem('th_admin');show('dash')}
+function requireAdmin(){if(sessionStorage.getItem('th_admin')!=='1'){openAdminGate();return false}return true}
+function adminTab(tab,b){if(!requireAdmin())return;['adminResources','adminAdd','adminUsers','adminSettings'].forEach(id=>document.getElementById(id).classList.add('hide'));document.getElementById(tab==='resources'?'adminResources':tab==='add'?'adminAdd':tab==='users'?'adminUsers':'adminSettings').classList.remove('hide');document.querySelectorAll('.admin-tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(tab==='users')renderUsers()}
+function saveResource(){if(!requireAdmin())return;const title=document.getElementById('newTitle').value.trim(),type=document.getElementById('newType').value,desc=document.getElementById('newDesc').value.trim(),link=document.getElementById('newLink').value.trim();if(!title){alert('Please enter a title.');return}const items=getAdminItems();const pdf=document.getElementById('pdfFile')?.files?.[0];const item={title,type,desc,link,pdfName:pdf?pdf.name:(editingIndex>=0?getAdminItems()[editingIndex].pdfName:'')};if(editingIndex>=0){items[editingIndex]=item}else{items.push(item)}saveAdminItems(items);editingIndex=-1;clearForm();renderAdmin();renderAddedItems();adminTab('resources',document.getElementById('tabResources'));alert('Resource saved successfully.')}
+function editResource(i){if(!requireAdmin())return;const it=getAdminItems()[i];editingIndex=i;document.getElementById('newTitle').value=it.title;document.getElementById('newType').value=it.type;document.getElementById('newDesc').value=it.desc||'';document.getElementById('newLink').value=it.link||'';document.getElementById('adminFormTitle').textContent='✏️ Edit Resource';document.getElementById('saveResourceBtn').textContent='Save Changes';adminTab('add',document.getElementById('tabAdd'))}
+function deleteResource(i){if(!requireAdmin())return;if(!confirm('Delete this resource?'))return;const items=getAdminItems();items.splice(i,1);saveAdminItems(items);renderAdmin();renderAddedItems()}
+function cancelEdit(){editingIndex=-1;clearForm();adminTab('resources',document.getElementById('tabResources'))}
+function clearForm(){if(document.getElementById('pdfFile'))document.getElementById('pdfFile').value='';if(document.getElementById('pdfFileName'))document.getElementById('pdfFileName').textContent='';['newTitle','newDesc','newLink'].forEach(id=>document.getElementById(id).value='');document.getElementById('adminFormTitle').textContent='➕ Add Resource';document.getElementById('saveResourceBtn').textContent='Add Resource'}
+function resetAdminData(){if(!requireAdmin())return;if(!confirm('Reset all resources created in Admin Panel?'))return;localStorage.removeItem('th_admin_resources');renderAdmin();renderAddedItems()}
+function renderAdmin(){if(sessionStorage.getItem('th_admin')!=='1')return;const items=getAdminItems(),list=document.getElementById('manageList');document.getElementById('adminCount').textContent=items.length;document.getElementById('adminPdfCount').textContent=items.filter(x=>x.type==='PDF').length;document.getElementById('adminBookCount').textContent=items.filter(x=>x.type==='Books'||x.type==='E-books').length;document.getElementById('adminUserCount').textContent=getUsers().length;list.innerHTML=items.length?items.map((it,i)=>`<div class="manage-row"><div><span class="tag">${escapeHtml(it.type)}</span><b style="display:block;margin-top:6px">${escapeHtml(it.title)}</b><small class="muted">${escapeHtml(it.desc||'No description')}</small></div><div class="manage-actions"><button class="small-btn" onclick="editResource(${i})">Edit</button><button class="danger" onclick="deleteResource(${i})">Delete</button></div></div>`).join(''):'<p class="muted">No admin resources yet. Use Add Resource to create one.</p>'}
+function renderAddedItems(){const grid=document.getElementById('libraryGrid');if(!grid)return;document.querySelectorAll('.added-library-item').forEach(x=>x.remove());const items=getAdminItems();items.forEach(it=>{const d=document.createElement('div');d.className='card library-item added-library-item';d.dataset.type=it.type;d.dataset.text=(it.title+' '+it.desc).toLowerCase();const safeLink=it.link?it.link.replace(/"/g,'&quot;'):'';d.innerHTML='<span class="tag">'+escapeHtml(it.type.toUpperCase())+'</span><h3>'+escapeHtml(it.title)+'</h3><p class="muted">'+escapeHtml(it.desc||'Admin resource')+'</p>'+(it.link?'<a class="btn" href="'+safeLink+'" target="_blank">Open</a>':'<span class="muted">No link added</span>');grid.appendChild(d)});filterLibrary()}
+function escapeHtml(x){return String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+
+function filterNotes(){
+  const q=document.getElementById('noteSearch').value.toLowerCase(), c=document.getElementById('noteClass').value;
+  document.querySelectorAll('.note').forEach(n=>n.style.display=(!q||n.dataset.text.includes(q))&&(c==='all'||n.dataset.class===c)?'block':'none');
+}
+const data=[
+['Which gas is produced when an acid reacts with a metal?',['Oxygen','Hydrogen','Nitrogen','Carbon dioxide'],1],
+['What is the solution of x² − 5x + 6 = 0?',['1, 6','2, 3','-2, -3','3, 6'],1],
+['Democracy means government by:',['A king','The military','The people','Judges'],2],
+['Why should a chemical equation be balanced?',['Atoms are destroyed','Atoms are created','Atoms are conserved','Atoms become heavier'],2],
+['Which is the distance formula?',['√((x₂−x₁)²+(y₂−y₁)²)','x₁+x₂','x₁y₁','x₂−x₁'],0]
+];
+let qi=0,sc=0,done=false;
+function render(){
+  done=false; const d=data[qi];
+  document.getElementById('q').innerHTML='<h3>Question '+(qi+1)+' of '+data.length+'</h3><p>'+d[0]+'</p>';
+  document.getElementById('opts').innerHTML=d[1].map((x,i)=>'<button class="option" onclick="ans('+i+',this)">'+x+'</button>').join('');
+  document.getElementById('qs').textContent='Score: '+sc+'/'+data.length;
+  document.getElementById('bar').style.width=(qi/data.length*100)+'%';
+}
+function ans(i,b){
+  if(done)return; done=true; const d=data[qi];
+  document.querySelectorAll('.option').forEach((x,j)=>{if(j===d[2])x.classList.add('correct')});
+  if(i===d[2])sc++; else b.classList.add('wrong');
+  document.getElementById('qs').textContent='Score: '+sc+'/'+data.length;
+}
+function nextQ(){
+  if(!done){alert('Please choose an answer first.');return}
+  qi++;
+  if(qi>=data.length){
+    const p=Math.round(sc/data.length*100);
+    document.getElementById('q').innerHTML='<h2>🎉 Quiz Complete!</h2><p>Final score: <b>'+sc+'/'+data.length+' ('+p+'%)</b></p>';
+    document.getElementById('opts').innerHTML='';
+    document.getElementById('next').textContent='Restart Quiz';
+    document.getElementById('next').onclick=()=>{qi=0;sc=0;document.getElementById('next').textContent='Next Question';document.getElementById('next').onclick=nextQ;render()};
+    document.getElementById('score').textContent=p+'%';
+    document.getElementById('bar').style.width='100%'; return;
+  }
+  render();
+}
+(function init(){
+  const n=sessionStorage.getItem('th_user');
+  if(n){document.getElementById('who').textContent=n;document.getElementById('welcome').textContent=n;document.getElementById('login').classList.add('hide');document.getElementById('app').classList.remove('hide')}
+  render(); renderAddedItems();
+})();
+if(sessionStorage.getItem('th_admin')==='1')renderAdmin();
+renderAddedItems();
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, addDoc, getDocs, query, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
+import { firebaseConfig, ADMIN_PHONE_E164 } from './firebase-config.js';
+
+let app, auth, db, storage, confirmationResult=null, adminConfirmationResult=null, recaptcha=null, adminRecaptcha=null, cloudReady=false, cloudResources=[];
+const configured = firebaseConfig && firebaseConfig.apiKey && firebaseConfig.projectId && !String(firebaseConfig.apiKey).includes('PASTE_');
+
+function setCloudStatus(v){ const e=document.getElementById('onlineStatus'); if(e)e.textContent=v; }
+window.closeAdminGate=function(){document.getElementById('adminGate').classList.add('hide');const p=document.getElementById('adminPhone');if(p)p.value='';const o=document.getElementById('adminOtp');if(o)o.value='';};
+function phoneE164(n){ return '+91'+n; }
+function valid10(n){ return /^\d{10}$/.test(n); }
+function friendlyError(e){ return (e && e.code ? e.code.replace('auth/','').replaceAll('-',' ') : 'Something went wrong'); }
+function ensureConfigured(){ if(!configured){alert('Firebase abhi configure nahi hua. ZIP ke firebase-config.js mein apne Firebase Web App ka config paste karo.'); return false;} return true; }
+
+async function initCloud(){
+  if(!configured){setCloudStatus('Setup');sessionStorage.removeItem('th_user');sessionStorage.removeItem('th_admin');document.getElementById('login').classList.remove('hide');document.getElementById('app').classList.add('hide');return;}
+  try{
+    app=initializeApp(firebaseConfig); auth=getAuth(app); db=getFirestore(app); storage=getStorage(app); cloudReady=true; setCloudStatus('Online');
+    onAuthStateChanged(auth, async user=>{
+      if(user){
+        const mobile=user.phoneNumber||'';
+        await saveUserProfile(user);
+        sessionStorage.setItem('th_user',mobile);
+        document.getElementById('who').textContent=mobile; document.getElementById('welcome').textContent=mobile;
+        document.getElementById('login').classList.add('hide'); document.getElementById('app').classList.remove('hide');
+        if(mobile===ADMIN_PHONE_E164){ sessionStorage.setItem('th_admin','1'); }
+        await loadCloudResources();
+      }else{
+        sessionStorage.removeItem('th_user'); sessionStorage.removeItem('th_admin');
+        document.getElementById('login').classList.remove('hide'); document.getElementById('app').classList.add('hide');
+      }
+    });
+  }catch(e){setCloudStatus('Error');console.error(e);alert('Firebase setup error: '+e.message);}
+}
+
+async function saveUserProfile(user){
+  const r=doc(db,'users',user.uid), snap=await getDoc(r);
+  if(!snap.exists()) await setDoc(r,{uid:user.uid,mobile:user.phoneNumber,firstLogin:serverTimestamp(),lastLogin:serverTimestamp(),loginCount:1,consent:true});
+  else await updateDoc(r,{lastLogin:serverTimestamp(),loginCount:(snap.data().loginCount||0)+1});
+}
+
+function makeRecaptcha(id, admin=false){
+  const holder=admin?'adminRecaptcha':'recaptcha';
+  try{ if(adminRecaptcha&&adminRecaptcha.clear)adminRecaptcha.clear(); if(recaptcha&&recaptcha.clear)recaptcha.clear(); }catch(e){}
+  const v=new RecaptchaVerifier(auth,id,{size:'normal'}); if(admin)adminRecaptcha=v; else recaptcha=v; return v;
+}
+
+window.login=async function(){
+  if(!ensureConfigured())return; const n=document.getElementById('name').value.trim();
+  if(!valid10(n)){alert('Mobile number must be exactly 10 digits.');return;}
+  if(!document.getElementById('consent').checked){alert('Please accept the data-use notice to continue.');return;}
+  try{
+    const verifier=recaptcha||makeRecaptcha('recaptcha-container');
+    confirmationResult=await signInWithPhoneNumber(auth,phoneE164(n),verifier);
+    document.getElementById('otpBox').classList.remove('hide'); document.getElementById('otpStatus').textContent='OTP sent. Check your SMS.';
+    document.getElementById('sendOtpBtn').textContent='📩 OTP Sent';
+  }catch(e){console.error(e);alert('OTP send failed: '+friendlyError(e));}
+};
+window.verifyOtp=async function(){
+  if(!confirmationResult)return alert('Pehle Send OTP dabao.'); const code=document.getElementById('otp').value.trim();
+  if(!/^\d{6}$/.test(code))return alert('OTP 6 digits ka hona chahiye.');
+  try{await confirmationResult.confirm(code);document.getElementById('otpStatus').textContent='Verified successfully.';}catch(e){alert('Wrong/expired OTP: '+friendlyError(e));}
+};
+window.logout=async function(){if(cloudReady)await signOut(auth); else location.reload();};
+
+window.openAdminGate=function(){document.getElementById('adminGate').classList.remove('hide');};
+window.closeAdminGate=function(){document.getElementById('adminGate').classList.add('hide');};
+window.adminLogin=async function(){
+  if(!ensureConfigured())return; const n=document.getElementById('adminPhone').value.trim();
+  if(!valid10(n))return alert('Admin mobile number must be exactly 10 digits.');
+  if(phoneE164(n)!==ADMIN_PHONE_E164)return alert('This mobile number is not the configured admin number.');
+  try{const verifier=adminRecaptcha||makeRecaptcha('admin-recaptcha-container',true);adminConfirmationResult=await signInWithPhoneNumber(auth,phoneE164(n),verifier);document.getElementById('adminOtpBox').classList.remove('hide');document.getElementById('adminOtpStatus').textContent='Admin OTP sent.';}catch(e){alert('Admin OTP failed: '+friendlyError(e));}
+};
+window.verifyAdminOtp=async function(){if(!adminConfirmationResult)return alert('Pehle Admin OTP send karo.');const code=document.getElementById('adminOtp').value.trim();if(!/^\d{6}$/.test(code))return alert('OTP 6 digits ka hona chahiye.');try{await adminConfirmationResult.confirm(code);sessionStorage.setItem('th_admin','1');closeAdminGate();show('admin');await renderAdminCloud();}catch(e){alert('Admin OTP verification failed: '+friendlyError(e));}};
+window.adminLogout=async function(){sessionStorage.removeItem('th_admin');show('dash');};
+window.requireAdmin=function(){if(sessionStorage.getItem('th_admin')!=='1'){openAdminGate();return false;}return true;};
+
+async function loadCloudResources(){
+  if(!cloudReady)return; try{const snap=await getDocs(query(collection(db,'resources'),orderBy('createdAt','desc')));cloudResources=snap.docs.map(d=>({id:d.id,...d.data()}));renderCloudLibrary();if(sessionStorage.getItem('th_admin')==='1')await renderAdminCloud();}catch(e){console.error(e);}
+}
+function renderCloudLibrary(){const grid=document.getElementById('libraryGrid');if(!grid)return;document.querySelectorAll('.cloud-library-item').forEach(x=>x.remove());cloudResources.forEach(it=>{const d=document.createElement('div');d.className='card library-item cloud-library-item';d.dataset.type=it.type;d.dataset.text=((it.title||'')+' '+(it.desc||'')).toLowerCase();d.innerHTML='<span class="tag">'+escapeHtml(it.type||'PDF')+'</span><h3>'+escapeHtml(it.title||'Untitled')+'</h3><p class="muted">'+escapeHtml(it.desc||'')+'</p>'+(it.url?'<a class="btn" href="'+it.url+'" target="_blank" rel="noopener">Open / Download</a>':'');grid.appendChild(d);});filterLibrary();}
+window.saveResource=async function(){
+  if(!requireAdmin()||!cloudReady)return; const title=document.getElementById('newTitle').value.trim(),type=document.getElementById('newType').value,desc=document.getElementById('newDesc').value.trim(),link=document.getElementById('newLink').value.trim(),file=document.getElementById('pdfFile')?.files?.[0];
+  if(!title)return alert('Please enter a title.'); if(type==='PDF'&&!file&&!link)return alert('PDF ke liye file select karo ya external link do.');
+  try{let url=link||'';let path=''; if(file){if(file.type!=='application/pdf')return alert('Sirf PDF file upload kar sakte ho.'); if(file.size>25*1024*1024)return alert('PDF 25 MB se chhoti rakho.');path='pdfs/'+Date.now()+'_'+file.name.replace(/[^a-zA-Z0-9._-]/g,'_');const sref=ref(storage,path);await uploadBytes(sref,file,{contentType:'application/pdf'});url=await getDownloadURL(sref);}
+    const item={title,type,desc,url,path,createdAt:serverTimestamp(),createdBy:auth.currentUser.uid};await addDoc(collection(db,'resources'),item);clearForm();await loadCloudResources();await renderAdminCloud();alert('Resource online save ho gaya. Ab sab logged-in users ko dikhai dega.');
+  }catch(e){console.error(e);alert('Upload/save failed: '+e.message);}
+};
+window.deleteResource=async function(i){if(!requireAdmin()||!cloudReady)return;const it=cloudResources[i];if(!it||!confirm('Delete this resource?'))return;try{await deleteDoc(doc(db,'resources',it.id));if(it.path)try{await deleteObject(ref(storage,it.path));}catch(e){}await loadCloudResources();await renderAdminCloud();}catch(e){alert('Delete failed: '+e.message);}};
+window.editResource=function(){alert('Online edit ke liye resource delete karke naya version upload karo.');};
+window.previewPdf=function(){const f=document.getElementById('pdfFile')?.files?.[0];const e=document.getElementById('pdfFileName');if(e)e.textContent=f?'Selected: '+f.name:'';};
+window.renderUsers=async function(){if(!requireAdmin()||!cloudReady)return;const el=document.getElementById('userList');if(!el)return;try{const snap=await getDocs(query(collection(db,'users'),orderBy('lastLogin','desc')));const rows=snap.docs.map(d=>d.data());el.innerHTML=rows.length?rows.map(x=>'<tr><td>'+escapeHtml(x.mobile||'')+'</td><td>'+fmtTs(x.firstLogin)+'</td><td>'+fmtTs(x.lastLogin)+'</td><td>'+escapeHtml(x.loginCount||1)+'</td></tr>').join(''):'<tr><td colspan="4" class="muted">No users yet.</td></tr>';}catch(e){el.innerHTML='<tr><td colspan="4">Unable to load users.</td></tr>';}};
+function fmtTs(x){try{return x?.toDate?x.toDate().toLocaleString():new Date(x).toLocaleString();}catch(e){return '—';}}
+async function renderAdminCloud(){if(!requireAdmin())return;document.getElementById('adminCount').textContent=cloudResources.length;document.getElementById('adminPdfCount').textContent=cloudResources.filter(x=>x.type==='PDF').length;document.getElementById('adminBookCount').textContent=cloudResources.filter(x=>x.type==='Books'||x.type==='E-books').length;try{const s=await getDocs(collection(db,'users'));document.getElementById('adminUserCount').textContent=s.size;}catch(e){}const list=document.getElementById('manageList');list.innerHTML=cloudResources.length?cloudResources.map((it,i)=>'<div class="manage-row"><div><span class="tag">'+escapeHtml(it.type||'')+'</span><b style="display:block;margin-top:6px">'+escapeHtml(it.title||'')+'</b><small class="muted">'+escapeHtml(it.desc||'')+'</small></div><div class="manage-actions">'+(it.url?'<a class="small-btn" href="'+it.url+'" target="_blank">Open</a>':'')+'<button class="danger" onclick="deleteResource('+i+')">Delete</button></div></div>').join(''):'<p class="muted">No online resources yet.</p>'; }
+window.adminTab=async function(tab,b){if(!requireAdmin())return;['adminResources','adminAdd','adminUsers','adminSettings'].forEach(id=>document.getElementById(id).classList.add('hide'));document.getElementById(tab==='resources'?'adminResources':tab==='add'?'adminAdd':tab==='users'?'adminUsers':'adminSettings').classList.remove('hide');document.querySelectorAll('.admin-tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(tab==='users')await renderUsers();if(tab==='resources')await renderAdminCloud();};
+window.resetAdminData=function(){alert('Online mode mein reset/delete individual resources se karo.');};
+
+initCloud();
+</script>
+</body></html>
